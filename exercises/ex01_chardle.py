@@ -13,20 +13,27 @@ if len(character)!=1:
 
 print("Searching for " + character + " in " + word)
 
+count: int = 0
+
 if (word[0] == character):
     print(character + " found at index 0")
+    count += 1
 if (word[1] == character):
     print(character + " found at index 1")
+    count += 1
 if (word[2] == character):
     print(character + " found at index 2")
+    count += 1
 if (word[3] == character):
     print(character + " found at index 3")
+    count += 1
 if (word[4] == character):
     print(character + " found at index 4")
-    
-"""Stuck on part 3"""
-count: str = 0
-if sum(True>=1):
-    count == count + 1
-    print(count + "instance of "+character+ " found in "+ word)
+    count += 1
 
+if count == 0:
+    print ("No instances of " + character + "found in " + word)
+if count == 1:
+    print(str(count) + "instance of "+ character + " found in "+ word)
+if count >= 2:
+    print (str(count) + " instances of " + character + " found in " + word)
