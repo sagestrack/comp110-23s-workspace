@@ -9,23 +9,25 @@ YELLOW_BOX: str = "\U0001F7E8"
 guess_idx: int = 0
 secret_word_idx: int = 0
 emoji: str = ""
-chr_contain: bool = False
-alt_idx: int = 0
 
-if len(guess) != len(secret_word):
+while len(guess) != len(secret_word):
     guess = input(f"That was not {str(len(secret_word))} letters! Try again: ")
-else:
+if len(guess) == len(secret_word):
     while guess_idx < len(secret_word):
         if guess[guess_idx] == secret_word[guess_idx]:
             emoji = emoji + GREEN_BOX
         else:
-            while chr_contain == False and guess_idx < len(secret_word) and alt_idx < len(secret_word):
+            chr_contain: bool = False
+            alt_idx: int = 0
+            while chr_contain is False and alt_idx < len(secret_word):
                 if guess[guess_idx] == secret_word[alt_idx]:
-                    chr_contain == True
-                    emoji = emoji + YELLOW_BOX
+                    chr_contain = True
                 else:
                     alt_idx = alt_idx + 1
-                    emoji = emoji + WHITE_BOX
+            if chr_contain is True:
+                emoji = emoji + YELLOW_BOX
+            else:
+                emoji = emoji + WHITE_BOX             
         guess_idx = guess_idx + 1
     print(emoji)
     if guess != secret_word:
