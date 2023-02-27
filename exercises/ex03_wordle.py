@@ -37,14 +37,14 @@ def emojified(guess: str, secret_word: str) -> str:
 
 def input_guess(input_guess: int) -> str:
     """prompts user for guess of the correct length"""
-    guess: str = input(f"Enter a {input_guess}-character word: ")
+    guess: str = input(f"Enter a {input_guess} character word: ")
     while len(guess) != input_guess:
-        guess = input(f"That was not {str(input_guess)} letters! Try again: ")
+        guess = input(f"That wasn't {str(input_guess)} chars! Try again: ")
     return guess
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
-    secret_word: str = "python"
+    secret_word: str = "codes"
     turn: int = 1
     while turn <=6 :
         print(f"=== Turn {turn}/6 ===")
